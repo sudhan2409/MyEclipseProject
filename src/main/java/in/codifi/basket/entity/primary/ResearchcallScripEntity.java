@@ -1,0 +1,157 @@
+package in.codifi.basket.entity.primary;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity(name = "TBL_RESEARCH_SCRIP")
+
+public class ResearchcallScripEntity implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+
+	@Column(name = "RESEARCHCALL_ID")
+	private int researchcallId;
+
+	@Column(name = "TOKEN")
+	private String token;
+
+	@Column(name = "EXCHANGE")
+	private String exchange;
+
+	@Column(name = "VALIDITY")
+	private String validity;
+
+//	@Column(name = "TAGS")
+//	private String speclizationTag;
+
+	@Column(name = "QTY")
+	private String qty;
+
+	@Column(name = "PRODUCT")
+	private String product;
+
+	@Column(name = "TRANS_TYPE")
+	private String transType;
+
+	@Column(name = "PRICE_TYPE")
+	private String priceType;
+
+	@Column(name = "ORDER_TYPE")
+	private String orderType;
+
+	@Column(name = "PRICE_LOWER_BOUND")
+	private String priceLowerBound;
+
+	@Column(name = "PRICE_UPPER_BOUND")
+	private String priceUpperBound;
+
+	@Column(name = "STOPLOSS_UPPER_BOUND")
+	private String stopLossUpperBound;
+
+	@Column(name = "STOPLOSS_LOWER_BOUND")
+	private String stopLossLowerBound;
+
+	@Column(name = "TARGET_UPPER_BOUND")
+	private String targetUpperBound;
+
+	@Column(name = "TARGET_LOWER_BOUND")
+	private String targetLowerBound;
+
+	@Column(name = "RETENTION")
+	private String retention;
+
+	@Column(name = "TRAILING_STOP_LOSS")
+	private String trailingStopLoss;
+
+	@Column(name = "TRIGGER_PRICE")
+	private String triggerPrice;
+
+	@Column(name = "DIS_CLOSED_QTY")
+	private String disClosedQty;
+
+	@Column(name = "EXPIRY")
+	private String expiry;
+
+	@Column(name = "EXPIRY_DATE")
+	private String expiryDate;
+
+	@Column(name = "VALIDITY_DAYS")
+	private String validityDays;
+
+	@Column(name = "FORMATTED_INS_NAME")
+	private String formattedInsName;
+
+	@Column(name = "TRADING_SYMBOL")
+	private String tradingSymbol;
+
+	@Column(name = "WEEK_TAG")
+	private String weekTag;
+
+	@Column(name = "REMARKS")
+	private String remarks;
+
+	@Column(name = "LOT_SIZE")
+	private String lotSize;
+
+	@Column(name = "MKT_PROTECTION")
+	private String mktProtection;
+
+	@Column(name = "USER_SEGMENT")
+	private String userSegment;
+
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@Column(name = "ACTIVE_STATUS")
+	private int activeStatus;
+
+//	@Column(name = "week_tag")
+//	private String weekTag;
+
+//	@Column(name = "SORT_ORDER")
+//	private String sortOrder;
+
+	@CreationTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@Column(name = "CREATED_ON", insertable = true, updatable = false)
+	private Date createdOn;
+
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@Column(name = "UPDATED_ON")
+	@UpdateTimestamp
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedOn;
+
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@Column(name = "CREATED_BY")
+	private String createdBy;
+
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@Column(name = "UPDATED_BY")
+	private String updatedBy;
+
+}
